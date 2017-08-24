@@ -24,6 +24,39 @@ namespace SimplyLinkedList
             count++;
         }
 
+        public bool DeleteUnit(T data)
+        {
+            Unit<T> actual = head;
+            Unit<T> antecedent = null;
+
+            while (actual != null)
+            {
+                if (actual.Data.Equals(data))
+                {
+                    if (antecedent != null)
+                    {
+                        antecedent.Next = actual.Next;
+                        if (actual.Next == null)
+                            tail = antecedent;
+                    }
+                    else
+                    {
+                        head = head.Next;
+
+                        if (head == null)
+                            tail = null;
+                    }
+
+                    count--;
+                    return true;
+                }
+
+                antecedent = actual;
+                actual = actual.Next;
+            }
+            return false;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
