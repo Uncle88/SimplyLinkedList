@@ -6,8 +6,22 @@ namespace SimplyLinkedList
 {
     public class LinkedList<T> : IEnumerable<T>
     {
-        public LinkedList()
+        Unit<T> head;
+        Unit<T> tail;
+        int count;
+
+        public void AddUnit(T data)
         {
+            Unit<T> _unit = new Unit<T>(data);
+
+            if (head == null)
+            {
+                head = _unit;
+            }
+            tail.Next = _unit;
+            tail = _unit;
+
+            count++;
         }
 
         public IEnumerator<T> GetEnumerator()
