@@ -15,9 +15,8 @@ namespace SimplyLinkedList
             Unit<T> _unit = new Unit<T>(data);
 
             if (head == null)
-            {
                 head = _unit;
-            }
+            else
             tail.Next = _unit;
             tail = _unit;
 
