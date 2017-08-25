@@ -57,6 +57,17 @@ namespace SimplyLinkedList
             return false;
         }
 
+        public void AppendFirstUnit(T data)
+        {
+            Unit<T> _unit = new Unit<T>(data);
+            _unit.Next = head;
+            head = _unit;
+
+            if (count == 0)
+                tail = head;
+            count++;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
