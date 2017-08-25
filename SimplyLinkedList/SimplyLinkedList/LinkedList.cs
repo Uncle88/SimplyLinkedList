@@ -82,12 +82,17 @@ namespace SimplyLinkedList
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            Unit<T> _unit = head;
+            while (_unit != null)
+            {
+                yield return _unit.Data;
+                _unit = _unit.Next;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
