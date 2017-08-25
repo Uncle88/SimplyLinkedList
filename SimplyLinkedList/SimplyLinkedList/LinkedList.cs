@@ -68,6 +68,18 @@ namespace SimplyLinkedList
             count++;
         }
 
+        public bool Contains(T data)
+        {
+            Unit<T> actual = head;
+            while (actual != null)
+            {
+                if (actual.Data.Equals(data))
+                    return true;
+                actual = actual.Next;
+            }
+            return false;
+        }
+
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
